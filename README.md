@@ -1,7 +1,10 @@
 # Arrow-Gen
+
+ArrowSAM is an in-memory Sequence Alignment/Map (SAM) representation which uses Apache Arrow framework (A cross-language development platform for in-memory data) and Plasma (Shared-Memory) Object Store to store and process SAM columnar data in-memory. 
+
 This repo contains following three components:
 
-1. ArrowSAM (In-memory Sequence Alignment/Map (SAM) data representation) integrated BWA-MEM, Picard and GATK tools.<br />
+1. ArrowSAM (In-memory SAM data representation) integrated BWA-MEM, Picard and GATK tools.<br />
 
 2. A Singularity container def file (To create an environment to use all Apache Arrow related tools and libraries for ArrowSAM).<br />
 
