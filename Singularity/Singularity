@@ -50,7 +50,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     apt-get install ca-certificates-java
     apt-get install sed
 
-    rm -r arrow/
+    #rm -r arrow/
     ##git clone https://github.com/apache/arrow.git
     git clone --single-branch --branch maint-0.12.x https://github.com/tahashmi/arrow.git
     #git clone https://github.com/tahashmi/arrow.git
