@@ -4,35 +4,32 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 
 
 %runscript
-    #!/bin/sh
-    #exec "$@"
-    echo "Starting run script..."
-    #chmod 777 /root/apps/test.sh
-    #run_all_hpc.sh
-    /home/tahmad/bulk/apps/test.sh 
-    /home/tahmad/bulk/apps/run_all.sh 
+    echo "This is what happens when you run the container..."
 
-%files
-    # Copy tools from /root/tools to /tools
-    #/root/tools / 
 
 %post
     echo "Hello from inside the container"
     sed -i 's/$/ universe/' /etc/apt/sources.list
+    apt-get update
+    apt-get -y install vim
     apt-get -y update
     apt-get -y upgrade
     apt-get -y dist-upgrade
     apt-get -y install vim
     apt-get install -y curl
     apt-get install cmake -y
+    apt-get update; apt-get install python-pip -y
     pip install ray
     pip install psutil
     apt-get install -y software-properties-common
     #apt-get install add-apt-repository
     add-apt-repository ppa:chris-lea/redis-server
     apt-get update
+    apt-get install flex bison -y
+    apt-get install libboost-dev -y
     apt-get install redis-server -y
     apt-get install openmpi-bin -y
+    apt-get install libsnappy-dev -y
     apt-get update && apt-get install -y python3
     apt-get update && apt install -y python-pip
     apt-get update && pip install pyarrow
@@ -50,24 +47,43 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     apt-get update && apt-get install dstat
     apt-get update && apt install -y git
     apt-get update && apt-get install -y linux-tools-generic
+    apt-get install ca-certificates-java
+    apt-get install sed
+
+    rm -r arrow/
+    ##git clone https://github.com/apache/arrow.git
+    #git clone --single-branch --branch master https://github.com/apache/arrow.git
+    git clone https://github.com/tahashmi/arrow.git
+    cd arrow
+    ##git checkout -b maint-0.12.x
+    cd cpp
+    mkdir release
+    cd release
+    ##cd arrow/cpp/release
+    cmake .. -DCMAKE_BUILD_TYPE=Release -DARROW_PARQUET=ON -DARROW_PLASMA=ON -DARROW_PLASMA_JAVA_CLIENT=ON -DARROW_PYTHON=ON
+    make install
+
+    cd /arrow/java
+    git submodule update --init --recursive # Needed for flight
+    mvn install -Djavax.net.ssl.trustStorePassword=changeit
+
+    cd /arrow/c_glib
+    ./autogen.sh
+    sed -i '16688 s/^/#/' configure 
+    ./configure
+    make
+    make install
+
     apt-get clean
-
-    # Create mount points for network drives
-    # mkdir -p /shares/{bulk,group}
-
-    #mv /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so.20.10.1 /usr/lib/x86_64-linux-gnu/openmpi/lib/libmpi.so.12
-
 
 %environment
     export PATH=$PATH:/usr/local/bin
     JAVA_HOME=/usr/bin/java
-    export TOOLS_PREFIX='/usr/local'
+    #export TOOLS_PREFIX='/usr/local'
     export GCC_VERSION='5.5.0'
     export BOOST_VERSION='1_67_0'
     export CPATH='/usr/local/include:/usr/lib'
     export PKG_CONFIG_PATH='/usr/local/lib/pkgconfig'
     export LD_LIBRARY_PATH='/usr/lib:/usr/lib/x86_64-linux-gnu:/usr/local/lib:/usr/lib/x86_64-linux-gnu/openmpi/lib'
-    export PATH=$TOOLS_PREFIX/bin:$PATH
-    echo $LD_LIBRARY_PATH
-
-
+    #export PATH=$TOOLS_PREFIX/bin:$PATH
+    #echo $LD_LIBRARY_PATH
