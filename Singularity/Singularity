@@ -26,7 +26,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     add-apt-repository ppa:chris-lea/redis-server
     apt-get update
     apt-get install flex bison -y
-    apt-get install libboost-dev -y
+    apt-get install libboost-all-dev -y 
     apt-get install redis-server -y
     apt-get install openmpi-bin -y
     apt-get install libsnappy-dev -y
@@ -50,16 +50,16 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
     apt-get install ca-certificates-java
     apt-get install sed
 
-    #rm -r arrow/
+    rm -r arrow/
     ##git clone https://github.com/apache/arrow.git
-    #git clone --single-branch --branch master https://github.com/apache/arrow.git
-    git clone https://github.com/tahashmi/arrow.git
+    git clone --single-branch --branch maint-0.12.x https://github.com/tahashmi/arrow.git
+    #git clone https://github.com/tahashmi/arrow.git
     cd arrow
     ##git checkout -b maint-0.12.x
     cd cpp
     mkdir release
     cd release
-    ##cd arrow/cpp/release
+    #cd arrow/cpp/release
     cmake .. -DCMAKE_BUILD_TYPE=Release -DARROW_PARQUET=ON -DARROW_PLASMA=ON -DARROW_PLASMA_JAVA_CLIENT=ON -DARROW_PYTHON=ON
     make install
 
