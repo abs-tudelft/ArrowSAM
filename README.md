@@ -12,4 +12,16 @@ This repo contains following three components:
 
 Note: ArrowSAM and all other workflows are based on single node, multi-core machines.
 
-##How to run
+## How to run 
+1. Install [Singularity](https://sylabs.io/docs/) container
+2. Download our Singularity [script](https://github.com/abs-tudelft/arrow-gen/tree/master/Singularity) and generate singulaity image (this image contains all Arrow related packges necessary for building/compiling BWA-MEM, Picard and GATK)
+3. Now enter into generated image using command:
+         
+        sudo singularity shell <image_name>.simg
+4. Download [BWA-MEM](https://github.com/tahashmi/bwa)
+       
+        git clone https://github.com/tahashmi/bwa.git
+5. Go inside bwa dir and do compile BWA-MEM:
+
+        make
+6. Now you can run BWA-MEM. 
