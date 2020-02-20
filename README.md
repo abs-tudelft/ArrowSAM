@@ -4,7 +4,7 @@ ArrowSAM is an in-memory Sequence Alignment/Map (SAM) representation which uses 
 
 This repo contains following three components:
 
-1. ArrowSAM (In-memory SAM data representation) integrated BWA-MEM, Picard and GATK tools.<br />
+1. ArrowSAM (In-memory SAM data representation) integrated [BWA-MEM](https://github.com/tahashmi/bwa), Picard and GATK tools.<br />
 
 2. A Singularity container def file (To create an environment to use all Apache Arrow related tools and libraries for ArrowSAM).<br />
 
