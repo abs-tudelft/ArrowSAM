@@ -18,7 +18,7 @@ Note: ArrowSAM and all other workflows are based on single node, multi-core mach
 3. Now enter into generated image using command:
          
         sudo singularity shell <image_name>.simg
-4. Download [BWA-MEM](https://github.com/tahashmi/bwa)
+4. Download [BWA-MEM](https://github.com/tahashmi/bwa) inside image
        
         git clone https://github.com/tahashmi/bwa.git
 5. Go inside bwa dir and do compile BWA-MEM:
