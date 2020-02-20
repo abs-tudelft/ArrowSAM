@@ -11,3 +11,5 @@ This repo contains following three components:
 3. Scripts to run different GATK best practices recommended workflows (using different in-memory data placement techniques like ArrowSAM, ramDisk and pipes for fast processing) to run complete DNA analysis pipeline efficeintly.<br />
 
 Note: ArrowSAM and all other workflows are based on single node, multi-core machines.
+
+##How to run
