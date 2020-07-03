@@ -2,11 +2,12 @@
 
 ArrowSAM is an in-memory Sequence Alignment/Map (SAM) representation which uses [Apache Arrow framework](https://arrow.apache.org/) (A cross-language development platform for in-memory data) and [Plasma (Shared-Memory) Object Store](https://arrow.apache.org/blog/2017/08/08/plasma-in-memory-object-store/) to store and process SAM columnar data in-memory. 
 
-=========
-The following paper describes the ArrowSAM format and its usage to speedup genomics pipelines. If you use ArrowSAM in your work, please cite the following paper.
+### <a name="cite"></a>Citing ArrowSAM
 
-T. Ahmad, N. Ahmed, J. Peltenburg and Z. Al-Ars, "ArrowSAM: In-Memory Genomics Data Processing Using Apache Arrow," International Conference on Computer Applications & Information Security (ICCAIS), 2020, doi: 10.1109/ICCAIS48893.2020.9096725.
-=========
+If you use ArrowSAM in your work, please cite:
+
+> T. Ahmad, N. Ahmed, J. Peltenburg and Z. Al-Ars, "ArrowSAM: In-Memory Genomics Data Processing Using Apache Arrow"
+> *ICCAIS*, 2020. [doi:10.1109/ICCAIS48893.2020.9096725][doi]
 
 This repo contains following three components:
 
