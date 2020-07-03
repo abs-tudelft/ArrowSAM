@@ -4,7 +4,7 @@ ArrowSAM is an in-memory Sequence Alignment/Map (SAM) representation which uses 
 
 ### <a name="cite"></a>Citing ArrowSAM
 
-If you use ArrowSAM in your work, please cite:
+The following paper describes the ArrowSAM format and its usage to speedup genomics pipelines. If you use ArrowSAM in your work, please cite the following paper.
 
 > Ahmad et al., (2020). "ArrowSAM: In-Memory Genomics Data Processing Using Apache Arrow
 > *ICCAIS*. [doi.org/10.1109/ICCAIS48893.2020.9096725](https://doi.org/10.1109/ICCAIS48893.2020.9096725)
