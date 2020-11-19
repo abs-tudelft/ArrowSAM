@@ -9,6 +9,9 @@ The following paper describes the ArrowSAM format and its usage to speedup genom
 > Ahmad et al., (2020). "ArrowSAM: In-Memory Genomics Data Processing Using Apache Arrow", 
 > *ICCAIS*. [doi.org/10.1109/ICCAIS48893.2020.9096725](https://doi.org/10.1109/ICCAIS48893.2020.9096725)
 
+> Ahmad et al., "Optimizing performance of GATK workflows using Apache Arrow In-Memory data framework",
+> *APBC2020*. [https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-020-07013-y](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-020-07013-y)
+
 This repo contains following three components:
 
 1. ArrowSAM (In-memory SAM data representation) integrated [BWA-MEM](https://github.com/tahashmi/bwa), Picard and GATK tools.<br />
